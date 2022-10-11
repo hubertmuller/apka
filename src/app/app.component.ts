@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'apka';
+  public title = 'apka';
+  //private prywatne = 'test';
+
+  constructor() {
+  }
+
+  public biezacaData() {
+    return Date.now();
+  }
 }

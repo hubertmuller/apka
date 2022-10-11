@@ -1,0 +1,15 @@
+<p>
+<button (click)="ustawTryb(0)">suma</button>
+<button (click)="ustawTryb(1)">roznica</button>
+<button (click)="ustawTryb(2)">iloczyn</button>
+<button (click)="ustawTryb(3)">iloraz</button>
+
+<button (click)="reset()">reset</button>
+</p>
+
+<p>
+    {{ks.tlumaczTryb(tryb)}} liczb {{liczba1}} i {{liczba2}} 
+    wynosi {{ks.operacja(liczba1, liczba2, tryb)}}
+</p>
+
+<app-reset (doWywolania)="reset($event)"></app-reset>
