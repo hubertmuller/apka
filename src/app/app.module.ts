@@ -8,13 +8,15 @@ import { SumaComponent } from './suma/suma.component';
 import { ResetComponent } from './reset/reset.component';
 import { MultiService } from './multi.service';
 import { HttpClientModule } from '@angular/common/http';
+import { KoszykComponent } from './koszyk/koszyk.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NaglowekComponent,
     SumaComponent,
-    ResetComponent
+    ResetComponent,
+    KoszykComponent
   ],
   imports: [
     BrowserModule,

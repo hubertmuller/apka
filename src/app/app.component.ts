@@ -12,10 +12,10 @@ export class AppComponent {
   public pobraneProdukty: Produkt[];
   //private prywatne = 'test';
 
-  constructor(sklep: SklepService) {
+  constructor(private sklep: SklepService) {
     this.pobraneProdukty = [];
     console.log('przed zawolaniem metody');
-    let produkty = sklep.pobierzProdukty();
+    let produkty = this.sklep.pobierzProdukty();
     console.log('po zawolaniu metody');
 
     produkty.subscribe( (tablicaProduktow) => {
@@ -32,5 +32,8 @@ export class AppComponent {
 
   public dodajDoKoszyka(id: string) {
     console.log(id);
+    this.sklep.doKoszyka(id);
   }
+
+
 }
