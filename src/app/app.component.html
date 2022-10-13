@@ -2,11 +2,32 @@
 [nazwaFirmy]="'JanPolEx'" 
 [koszyk]="true"></app-naglowek>
 
+<p *ngIf="ladujeDane">
+    ładuję listę produktów...
+</p>
+<table *ngIf="!ladujeDane">
+    <tr>
+        <th>id</th>
+        <th>nazwa</th>
+        <th>cena</th>
+        <th>kategoria</th>
+        <th>operacje</th>
+    </tr>
+    <tr *ngFor="let produkt of pobraneProdukty">
+        <td>{{produkt.id}}</td>
+        <td>{{produkt.name}}</td>
+        <td>{{produkt.cena}}</td>
+        <td>{{produkt.kategoria}}</td>
+        <td><button (click)="dodajDoKoszyka(produkt.id)">do koszyka</button></td>
+    </tr>
+</table>
+
+<!--
 <h1>Witaj!</h1>
 {{title}}
 {{biezacaData()}}
 
 <app-suma [liczba1]="324" [liczba2]="176"></app-suma>
-
+-->
 
 <router-outlet></router-outlet>

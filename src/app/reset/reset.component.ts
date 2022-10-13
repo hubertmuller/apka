@@ -6,7 +6,8 @@ import { MultiService } from '../multi.service';
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.component.html',
-  styleUrls: ['./reset.component.scss']
+  styleUrls: ['./reset.component.scss'],
+  providers:  [ MultiService ]
 })
 export class ResetComponent implements OnInit {
 
