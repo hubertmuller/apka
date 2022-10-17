@@ -9,6 +9,7 @@ import { ResetComponent } from './reset/reset.component';
 import { MultiService } from './multi.service';
 import { HttpClientModule } from '@angular/common/http';
 import { KoszykComponent } from './koszyk/koszyk.component';
+import { FormularzComponent } from './formularz/formularz.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { KoszykComponent } from './koszyk/koszyk.component';
     NaglowekComponent,
     SumaComponent,
     ResetComponent,
-    KoszykComponent
+    KoszykComponent,
+    FormularzComponent
   ],
   imports: [
     BrowserModule,
