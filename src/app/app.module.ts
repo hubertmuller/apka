@@ -12,6 +12,7 @@ import { KoszykComponent } from './koszyk/koszyk.component';
 import { FormularzComponent } from './formularz/formularz.component';
 import { NawigacjaComponent } from './nawigacja/nawigacja.component';
 import { ListaComponent } from './lista/lista.component';
+import { ZamowieniaComponent } from './zamowienia/zamowienia.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ListaComponent } from './lista/lista.component';
     KoszykComponent,
     FormularzComponent,
     NawigacjaComponent,
-    ListaComponent
+    ListaComponent,
+    ZamowieniaComponent
   ],
   imports: [
     BrowserModule,

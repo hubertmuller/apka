@@ -1,7 +1,17 @@
+@import '../shared.scss';
+
+@function powieksz($baza, $wspolczynnik) {
+    $res: 1;
+    @for $_ from 1 through 2 {
+        $res: $res + $_;
+    }
+    @return $baza * $wspolczynnik + $res;
+}
+
 h1 {
     color: rgb(32, 32, 89);
     background-color: #aaa;
     width: 100%;
     margin: 0;
-    padding: 5px;
+    padding: powieksz(5px, 1.5);
 }

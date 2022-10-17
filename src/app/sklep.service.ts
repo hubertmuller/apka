@@ -9,9 +9,11 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 export class SklepService {
 
   public basket: BehaviorSubject<string[]> = new BehaviorSubject([] as string[]);
+  private listaProduktow: Observable<Produkt[]>;
   //public koszyk: string[] = [];
 
   constructor(private http: HttpClient) { 
+    this.listaProduktow = this.pobierzProdukty2();
   }
 
   doKoszyka(id: string) {
@@ -34,6 +36,19 @@ export class SklepService {
       "https://634835f40b382d796c6c8ef0.mockapi.io/produkty"
       );
   }
+
+  pobierzProdukty2(): Observable<Produkt[]> {
+    console.log('poczatek pobierania produktow');
+    return this.http.get<Produkt[]>(
+      "https://634835f40b382d796c6c8ef0.mockapi.io/produkty"
+      );
+  }
+
+  
+  public get produkty() : Observable<Produkt[]> {
+    return this.listaProduktow;
+  }
+  
 }
 
 export interface Produkt {

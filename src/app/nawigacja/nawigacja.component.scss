@@ -1,10 +1,12 @@
+@import '../shared.scss';
+
 nav {
-    background-color: #ccc;
+    background-color: $kolorTlaNawigacji;
     color: brown;
     width: 100%;
     margin: 0;
     padding: 5px;
-    font-size: 12px;
+    font-size: $rozmiarBazowy;
 }
 
 a {
@@ -12,7 +14,8 @@ a {
     padding: 5px;
     font-weight: bold;
     text-decoration: none;
-    color: #f00;
+    color: $kolorNawigacji;
+    background-color: $kolorTlaNawigacji;
 }
 
 a:hover {
