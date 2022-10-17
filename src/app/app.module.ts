@@ -10,6 +10,8 @@ import { MultiService } from './multi.service';
 import { HttpClientModule } from '@angular/common/http';
 import { KoszykComponent } from './koszyk/koszyk.component';
 import { FormularzComponent } from './formularz/formularz.component';
+import { NawigacjaComponent } from './nawigacja/nawigacja.component';
+import { ListaComponent } from './lista/lista.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormularzComponent } from './formularz/formularz.component';
     SumaComponent,
     ResetComponent,
     KoszykComponent,
-    FormularzComponent
+    FormularzComponent,
+    NawigacjaComponent,
+    ListaComponent
   ],
   imports: [
     BrowserModule,
