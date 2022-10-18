@@ -1,0 +1,15 @@
+.spisGrid {
+    display: grid;
+    grid-template-columns: [start] auto [srodek] 200px [koniec];
+    grid-template-rows: [gora] auto [dol];
+}
+
+.koszyk {
+    grid-column: srodek / koniec;
+    grid-row: gora / dol;
+}
+
+.lista {
+    grid-column: start / srodek;
+    grid-row: gora / dol;
+}

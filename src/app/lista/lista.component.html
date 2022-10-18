@@ -2,24 +2,27 @@
     ładuję listę produktów...
 </p>
 
-<div>
-    <app-koszyk></app-koszyk>
-</div>
-<div>
-    <table *ngIf="!ladujeDane">
-        <tr>
-            <th>id</th>
-            <th>nazwa</th>
-            <th>cena</th>
-            <th>kategoria</th>
-            <th>operacje</th>
-        </tr>
-        <tr *ngFor="let produkt of pobraneProdukty">
-            <td>{{produkt.id}}</td>
-            <td>{{produkt.name}}</td>
-            <td>{{produkt.cena}}</td>
-            <td>{{produkt.kategoria}}</td>
-            <td><button (click)="dodajDoKoszyka(produkt.id)">do koszyka</button></td>
-        </tr>
-    </table>
+<div *ngIf="!ladujeDane" class="spisGrid">
+    <div class="koszyk">
+        <app-koszyk></app-koszyk>
+    </div>
+
+    <div class="lista">
+        <table>
+            <tr>
+                <th>id</th>
+                <th>nazwa</th>
+                <th>cena</th>
+                <th>kategoria</th>
+                <th>operacje</th>
+            </tr>
+            <tr *ngFor="let produkt of pobraneProdukty">
+                <td>{{produkt.id}}</td>
+                <td>{{produkt.name}}</td>
+                <td>{{produkt.cena | cc: 'PLN'}}</td>
+                <td>{{produkt.kategoria}}</td>
+                <td><button (click)="dodajDoKoszyka(produkt.id)">do koszyka</button></td>
+            </tr>
+        </table>
+    </div>
 </div>

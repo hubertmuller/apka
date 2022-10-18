@@ -13,6 +13,7 @@ import { FormularzComponent } from './formularz/formularz.component';
 import { NawigacjaComponent } from './nawigacja/nawigacja.component';
 import { ListaComponent } from './lista/lista.component';
 import { ZamowieniaComponent } from './zamowienia/zamowienia.component';
+import { CurrencyConverterPipe } from './currency-converter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ZamowieniaComponent } from './zamowienia/zamowienia.component';
     FormularzComponent,
     NawigacjaComponent,
     ListaComponent,
-    ZamowieniaComponent
+    ZamowieniaComponent,
+    CurrencyConverterPipe
   ],
   imports: [
     BrowserModule,

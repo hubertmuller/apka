@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Produkt, SklepService } from '../sklep.service';
 
 @Component({
@@ -24,6 +25,24 @@ export class ListaComponent implements OnInit {
       console.log('pobrano produkty');
       console.log(produkty);
     } )
+
+    const ob1 = new Observable( (subscriber) => {
+      console.log('observer1');
+      subscriber.next(Math.random());
+      console.log('observer2');
+      subscriber.next(Math.random());
+      subscriber.complete();
+    })
+
+    ob1.subscribe( (value) => {
+      console.log('przyszla' + value);
+    });
+
+    ob1.subscribe( (value) => {
+      console.log('druga subskrypcja przyszla' + value);
+    });
+
+
   }
 
   public dodajDoKoszyka(id: string) {
@@ -32,6 +51,10 @@ export class ListaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  przelicz() {
+
   }
 
 }

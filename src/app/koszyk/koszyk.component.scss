@@ -1,0 +1,14 @@
+@import '../shared.scss';
+
+a {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    color: $kolorNawigacji;
+}
+
+a:hover {
+    background-color: red;
+    color: #fff;
+}

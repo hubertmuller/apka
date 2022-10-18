@@ -1,9 +1,13 @@
-<p>zawartosc koszyka</p>
+<h1>zawartosc koszyka</h1>
 
-<span *ngFor="let item of zawartoscKoszyka">* {{item}}</span>
+<ul>
+    <li *ngFor="let nazwa of listaProduktowWKoszyku()">{{nazwa}}</li>
+</ul>
+
+<!--span *ngFor="let item of zawartoscKoszyka">* {{item}}</span-->
 
 <div>
-    <a [routerLink]="['realizacja']">
+    <a [routerLink]="['/','zamowienia']">
         Realizacja zamowienia
     </a>
 </div>
