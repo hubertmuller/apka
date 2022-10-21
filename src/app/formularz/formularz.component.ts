@@ -31,7 +31,7 @@ export class FormularzComponent implements OnInit {
     nazwisko: new FormControl('Kowalski', {validators: [
       NaszValidator.wymaganeNazwisko('ska')
     ], updateOn: "change"}),
-    plec: new FormControl<string|null>(null, {validators: [], updateOn: "change"})
+    plec: new FormControl<string|null>(null, {validators: [], updateOn: 'change'})
   });
 
   constructor(private sklep: SklepService) { 
