@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 import { Produkt, SklepService } from '../sklep.service';
 
 @Component({
@@ -27,20 +27,80 @@ export class ListaComponent implements OnInit {
     } )
 
     const ob1 = new Observable( (subscriber) => {
-      console.log('observer1');
+      console.log('observable generuje wartosc 1');
       subscriber.next(Math.random());
-      console.log('observer2');
+      console.log('observable generuje wartosc 2');
       subscriber.next(Math.random());
       subscriber.complete();
     })
 
+    console.log('po utworzeniu observable');
+
     ob1.subscribe( (value) => {
-      console.log('przyszla' + value);
+      console.log('pierwsza subskrypcja przyszla' + value);
     });
+
+
+    console.log('po pierwszej subskrypcji');
+
 
     ob1.subscribe( (value) => {
       console.log('druga subskrypcja przyszla' + value);
     });
+
+
+    console.log('po drugiej subskrypcji');
+
+
+    const subject = new Subject<number>();
+
+    subject.next(2);
+
+    subject.subscribe( (v) => {
+        console.log('subject - pierwsza' + v);
+    })
+
+    subject.next(3);
+    subject.next(4);
+    subject.next(10);
+
+    subject.subscribe( (v) => {
+      console.log('subject - druga' + v);
+    })
+
+    subject.next(11);
+
+    const subject2 = new BehaviorSubject<number>(1);
+
+    subject2.subscribe( (v) => {
+      console.log('behavior subject - pierwsza ' + v);
+    })
+
+    subject2.next(19);
+
+    subject2.subscribe( (v) => {
+      console.log('behavior subject - drugaa ' + v);
+    })
+
+    const subject3 = new ReplaySubject<number>();
+
+    subject3.next(33);
+    subject3.next(44);
+    subject3.next(55);
+
+    subject3.subscribe( (v) => {
+      console.log('replay subject - pierwsza ' + v);
+    })
+
+    subject3.next(4);
+    subject3.next(5);
+
+    subject3.subscribe( (v) => {
+      console.log('replay subject - druga' + v);
+    })
+
+    subject3.next(6);    
+    subject3.next(66);
 
 
   }

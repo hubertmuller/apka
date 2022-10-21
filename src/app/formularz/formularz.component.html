@@ -1,1 +1,53 @@
-<p>formularz works!</p>
+<h1>Formularz</h1>
+
+<form [formGroup]="forma">
+    <div>
+    <label for="i">imie</label>
+    <input type="text" formControlName="imie" id="i">
+    </div>
+    <div *ngIf="forma.controls.imie.errors" class="errors">
+        <div *ngIf="forma.controls.imie.errors['minlength']">
+            Pole imie musi miec przynajmniej
+            {{forma.controls.imie.errors['minlength'].requiredLength}}
+            znaków, a obecnie ma tylko
+            {{forma.controls.imie.errors['minlength'].actualLength}} znaków
+        </div>
+        <div *ngIf="forma.controls.imie.errors['maxlength']">
+            Pole imie moze mieć maksymanie
+            {{forma.controls.imie.errors['maxlength'].requiredLength}}
+            znaków, a obecnie ma aż
+            {{forma.controls.imie.errors['maxlength'].actualLength}} znaków
+        </div>
+        <div *ngIf="forma.controls.imie.errors['required']">
+            Pole jest wymagane
+        </div>
+    </div>
+    <div>
+        <label for="n">nazwisko</label>
+        <input type="text" formControlName="nazwisko" id="n">
+    </div>
+    <div *ngIf="forma.controls.nazwisko.errors" class="errors">
+        <div *ngIf="forma.controls.nazwisko.errors['wymaganenazwisko']">
+            {{forma.controls.nazwisko.errors['wymaganenazwisko']}}
+        </div>
+    </div>
+
+    <div>
+        <label for="k">kobieta</label>
+        <input type="radio" formControlName="plec" value="k" id="k">
+        <label for="m">mężczyzna</label>
+        <input type="radio" formControlName="plec" value="m" id="m">
+
+    </div>
+    <button *ngIf="forma.valid" (click)="przeslijDane()">Wyślij</button>
+</form>
+
+
+Dane w formularzu
+<div>imie: {{ forma.controls.imie.value}}</div>
+<div>nazwisko: {{ forma.controls.nazwisko.value}}</div>
+
+{{ forma.value | json}}
+
+
+<button (click)="wartosciDomyslne()">Ustaw Domyslne</button>

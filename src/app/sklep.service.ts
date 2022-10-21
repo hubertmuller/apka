@@ -8,12 +8,20 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class SklepService {
 
+
   public basket: BehaviorSubject<string[]> = new BehaviorSubject([] as string[]);
   private listaProduktow: Observable<Produkt[]>;
   //public koszyk: string[] = [];
 
   constructor(private http: HttpClient) { 
     this.listaProduktow = this.pobierzProdukty2();
+  }
+
+  
+  wyslijFormularz(dane: any) {
+    return this.http.post<any>(
+      "https://634835f40b382d796c6c8ef0.mockapi.io/formularz"
+      , dane);
   }
 
   doKoszyka(id: string) {
@@ -24,6 +32,7 @@ export class SklepService {
 
     let kosz = this.basket.value;
     kosz.push(id);
+
     this.basket.next(kosz);
 
 

@@ -14,6 +14,7 @@ import { NawigacjaComponent } from './nawigacja/nawigacja.component';
 import { ListaComponent } from './lista/lista.component';
 import { ZamowieniaComponent } from './zamowienia/zamowienia.component';
 import { CurrencyConverterPipe } from './currency-converter.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CurrencyConverterPipe } from './currency-converter.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [MultiService],
   bootstrap: [AppComponent]
