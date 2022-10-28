@@ -18,7 +18,7 @@ export class SklepService {
   }
 
   
-  wyslijFormularz(dane: any) {
+  wyslijFormularz(dane: any): Observable<any> {
     return this.http.post<any>(
       "https://634835f40b382d796c6c8ef0.mockapi.io/formularz"
       , dane);

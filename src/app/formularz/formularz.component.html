@@ -37,8 +37,29 @@
         <input type="radio" formControlName="plec" value="k" id="k">
         <label for="m">mężczyzna</label>
         <input type="radio" formControlName="plec" value="m" id="m">
-
     </div>
+
+    <div [formGroup]="forma.controls.status">
+        <label for="k">emeryt</label>
+        <input type="checkbox" formControlName="emeryt">
+        <div *ngIf="pokazRokEmerytury">
+            Rok przejscia na emeryture
+            <input  type="text" maxlength="4" size="5" formControlName="rokEmerytury">
+        </div>
+        <label for="m">pracujacy</label>
+        <input type="checkbox" formControlName="pracujacy">
+        <div *ngIf="pokazRokPracy">
+            Rok rozpoczecia pracy
+            <input  type="text" maxlength="4" size="5" formControlName="rokPracy">
+        </div>
+    </div>
+    <div>Posiadany samochód</div>
+    <select formControlName="samochod">
+        <option [ngValue]="'opel'">Opel</option>
+        <option [ngValue]="'ford'">Ford</option>
+        <option [ngValue]="'porsche'">Porsche</option>
+    </select>
+
     <button *ngIf="forma.valid" (click)="przeslijDane()">Wyślij</button>
 </form>
 

@@ -31,26 +31,59 @@ export class FormularzComponent implements OnInit {
     nazwisko: new FormControl('Kowalski', {validators: [
       NaszValidator.wymaganeNazwisko('ska')
     ], updateOn: "change"}),
-    plec: new FormControl<string|null>(null, {validators: [], updateOn: 'change'})
+    plec: new FormControl<string|null>(null, {validators: [], updateOn: 'change'}),
+    status: new FormGroup(
+      {
+        emeryt: new FormControl( null , { validators: [], updateOn: "change"}),
+        rokEmerytury: new FormControl( null , { validators: [], updateOn: "change"}),
+        pracujacy: new FormControl( null , { validators: [], updateOn: "change"}),
+        rokPracy: new FormControl( null , { validators: [], updateOn: "change"}),
+      }
+    ),
+    samochod: new FormControl( null, { validators: [], updateOn: "change"}),
   });
+  pokazRokEmerytury = false;
+  pokazRokPracy = false;
 
   constructor(private sklep: SklepService) { 
+
+
     this.forma.controls.imie.valueChanges.subscribe( (imie) => {
       if (imie == "Ala") {
         this.forma.controls.plec.setValue('k');
       }
     });
+
+    this.forma.controls.status.controls.emeryt.valueChanges.subscribe ( (emeryt) => {
+      if (emeryt == true) {
+        this.pokazRokEmerytury = true;
+      } else {
+        this.pokazRokEmerytury = false;
+      }
+    });
+
+    this.forma.controls.status.controls.pracujacy.valueChanges.subscribe ( (pracownik) => {
+      if (pracownik == true) {
+        this.pokazRokPracy = true;
+      } else {
+        this.pokazRokPracy = false;
+      }
+    });
+
+
+
   }
 
   przeslijDane() {
     const dane = {
       imie: this.forma.controls.imie.value,
-      nazwisko: this.forma.controls.imie.value,
-      plec: this.forma.controls.plec.value
+      nazwisko: this.forma.controls.nazwisko.value,
+      plec: this.forma.controls.plec.value,
+      samochod: this.forma.controls.samochod.value
     }
     console.log(dane);
     this.sklep.wyslijFormularz(dane).subscribe ( (_: any) => {
-      console.log('dane zapisane');
+      alert('Formularz wysłany');
     });
   }
 
