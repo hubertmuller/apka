@@ -30,6 +30,7 @@ export class FormularzComponent implements OnInit {
     ], updateOn: "change"}),
     nazwisko: new FormControl('Kowalski', {validators: [
       NaszValidator.wymaganeNazwisko('ska')
+      //Validators.pattern(/^[0-9]{2,2}[\-]{1,1}[0-9]{3,3}$/g)
     ], updateOn: "change"}),
     plec: new FormControl<string|null>(null, {validators: [], updateOn: 'change'}),
     status: new FormGroup(
